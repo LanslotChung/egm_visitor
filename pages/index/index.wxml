@@ -1,0 +1,179 @@
+<!--index.wxml-->
+<view class="box-0">
+  <view class="box-0-0">
+    <image src="{{indexInfo.productObj.mainPic}}"></image>
+  </view>
+  <view class="box-0-1">
+    <view class="box-0-1-0">
+      <view class="box-0-1-0-0">
+        <view class="box-0-1-0-0-0">
+          <image src="{{indexInfo.adviserHeadPic}}"></image>
+        </view>
+        <view class="box-0-1-0-0-1">
+          <view class="box-0-1-0-0-1-0">
+            <view class="box-0-1-0-0-1-0-0">{{indexInfo.adviserName}}</view>
+          </view>
+          <view class="box-0-1-0-0-1-0-1">{{indexInfo.adviserLevelName}}</view>
+          <view class="box-0-1-0-0-1-1">联系方式:{{indexInfo.adviserMobile}}</view>
+          <view class="box-0-1-0-0-1-1">微信号:{{indexInfo.adviserWxNumber}}</view>
+        </view>
+        <view class="box-0-1-0-0-2">
+          <button class="box-0-1-0-0-2-0" open-type="share"></button>
+          <!-- <view class="iconfont iconfenxiang"></view> -->
+          <view class="box-0-1-0-0-2-1"><image src="../../imgs/fx.png"></image> </view>
+          <view class="box-0-1-0-0-2-2">分享</view>
+        </view>
+      </view>
+      <view class="box-0-1-0-1">
+        <view class="box-0-1-0-1-0">
+          <view class="box-0-1-0-1-0-0">
+            <view class="box-0-1-0-1-0-0-0" wx:if="{{indexInfo.visitorHeadPics[0].headPic}}">
+              <image src="{{indexInfo.visitorHeadPics[0].headPic}}"></image>
+            </view>
+            <view class="box-0-1-0-1-0-0-1" wx:if="{{indexInfo.visitorHeadPics[1].headPic}}">
+              <image src="{{indexInfo.visitorHeadPics[1].headPic}}"></image>
+            </view>
+            <view class="box-0-1-0-1-0-0-2" wx:if="{{indexInfo.visitorHeadPics[2].headPic}}">
+              <image src="{{indexInfo.visitorHeadPics[2].headPic}}"></image>
+            </view>
+          </view>
+          <view class="box-0-1-0-1-0-1"><text>{{indexInfo.hits}}</text>次浏览</view>
+        </view>
+        <view class="box-0-1-0-1-1">
+          <view class="box-0-1-0-1-1-0" bindtap="saveContactsFn">
+            <view class="box-0-1-0-1-1-0-0">
+              <image src="../../imgs/bclxr.png"></image>
+            </view>
+            <view class="box-0-1-0-1-1-0-1">保存联系人</view>
+          </view>
+          <view class="box-0-1-0-1-1-0" bindtap="callPhone" data-id="{{indexInfo.adviserMobile}}">
+            <view class="box-0-1-0-1-1-0-0">
+              <image src="../../imgs/ddh.png"></image>
+            </view>
+            <view class="box-0-1-0-1-1-0-1">拨号</view>
+          </view>
+          <view class="box-0-1-0-1-1-0" bindtap="textPaste">
+            <view class="box-0-1-0-1-1-0-0">
+              <image src="../../imgs/jwx.png"></image>
+            </view>
+            <view class="box-0-1-0-1-1-0-1">加微信</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="box-1">
+  <view class="box-1-0">我的推荐</view>
+  <!-- <view class="box-1-1"></view> -->
+</view>
+<view class="box-2">
+  <view class="box-2-0">
+  <!-- <swiper class="box-2-0"> -->
+    <block>
+      <!-- <swiper-item> -->
+        <view class="box-2-0-0">
+          <view class="box-2-0-0-0" bindtap="goWebView">
+            <view class="box-2-0-0-0-0"><image src="{{indexInfo.productObj.mainPic}}" mode="aspectFill"></image></view>
+            <view class="box-2-0-0-0-1">
+              <view class="box-2-0-0-0-1-0">项目详情</view>
+            </view>
+          </view>
+          <view class="box-2-0-0-1">
+            <view class="box-2-0-0-1-0"><image src="{{indexInfo.productObj.icon}}"></image></view>
+            <view class="box-2-0-0-1-1">
+              <view class="box-2-0-0-1-1-0">{{indexInfo.productObj.name}}</view>
+              <view class="box-2-0-0-1-1-1" style="display:none">
+                <view class="box-2-0-0-1-1-1-0">普通住宅</view>
+                <view class="box-2-0-0-1-1-1-0">配置完善</view>
+                <view class="box-2-0-0-1-1-1-0">商业综合体</view>
+              </view>
+            </view>
+            <view class="box-2-0-0-1-2">
+              <view class="box-2-0-0-1-2-0">
+                <view class="iconfont iconloc-s"></view>
+                <view>{{shortAddrs[0]}}</view>
+              </view>
+              <view class="box-2-0-0-1-2-1">
+                <view class="iconfont iconliulan"></view>
+                <view>浏览：{{indexInfo.productObj.visitorNum}}次</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      <!-- </swiper-item> -->
+    </block>
+  <!-- </swiper> -->
+  </view>
+</view>
+<view class="box-1">
+  <view class="box-1-0">推荐文章</view>
+  <!-- <view class="box-1-2"></view> -->
+</view>
+<view class="box-3" wx:for="{{indexInfo.articleInfoList}}" wx:key="index" bindtap="goArticle" data-id="{{item.id}}">
+  <view class="box-3-0"><image src="{{item.cover}}"></image></view>
+  <view class="box-3-1">
+    <view class="box-3-1-0">{{item.title}}</view>
+    <!-- <view class="box-3-1-1">唤起亿万国人的未来</view> -->
+    <view class="box-3-1-2">{{item.createTime}}</view>
+  </view>
+</view>
+
+<view class="box-4"></view>
+<view class="box-5" style="display:none">回赠名片</view>
+
+<view class="box-6" style="display:none">
+  <view class="iconfont iconliaotian"></view>
+  <view class="box-6-1">聊天</view>
+</view>
+
+<view class="box-7" style="display:none">
+  <view class="box-7-0">
+    <view class="box-7-0-0">
+      <view class="iconfont iconguanbi"></view>
+    </view>
+    <view class="box-7-0-1">
+      <image></image>
+    </view>
+    <view class="box-7-0-2">
+      <view class="box-7-0-2-0">回赠名片</view>
+      <view class="box-7-0-2-1">
+        <view>姓名:</view>
+        <input type="text" placeholder="请输入您的姓名"></input>
+      </view>
+      <view class="box-7-0-2-1">
+        <view>电话:</view>
+        <input type="number" placeholder="请输入您的电话"></input>
+      </view>
+      <view class="box-7-0-2-2">确定</view>
+    </view>
+  </view>
+</view>
+
+<view class="loading" wx:if="{{loading}}">
+  <!-- <view class="iconfont iconjiazaizhong"></view> -->
+  <image src="/imgs/logo.png" mode="aspectFit"></image>
+</view>
+
+<!--获取用户信息弹框-->
+<view class="getUserInfo" wx:if="{{getUserInfoShow}}">
+  <view class="getUserInfo-0">
+    <view class="getUserInfo-0-0">授权提示</view>
+    <view class="getUserInfo-0-1">需要获取您的用户信息,为您提供更好的服务</view>
+    <view class="getUserInfo-0-2">
+      <view class="getUserInfo-0-2-0" bindtap="cancelGetUserInfoFn">取消</view>
+      <view class="getUserInfo-0-2-1"><button open-type="getUserInfo" bindgetuserinfo="getuserinfoFn" bindtap="hideUserInfoFn"></button>确认</view>
+    </view>
+  </view>
+</view>
+<!--获取手机号码弹框-->
+<view class="getUserInfo" wx:if="{{getPhoneNumberShow}}">
+  <view class="getUserInfo-0">
+    <view class="getUserInfo-0-0">授权提示</view>
+    <view class="getUserInfo-0-1">需要获取您的手机号码,为您提供更好的服务</view>
+    <view class="getUserInfo-0-2">
+      <view class="getUserInfo-0-2-0" bindtap="cancelGetPhoneNumberFn">取消</view>
+      <view class="getUserInfo-0-2-1"><button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumberFn" bindtap="hidePhoneFn"></button>确认</view>
+    </view>
+  </view>
+</view>

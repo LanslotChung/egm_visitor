@@ -1,0 +1,7 @@
+/* pages/webview/webview.wxss */
+.shareButton{
+  border-right: 1px solid #e0e0e0;
+  margin-right: 4px;
+  padding-right: 10px;
+  position: relative;
+}

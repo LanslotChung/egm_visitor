@@ -1,0 +1,10 @@
+<!--pages/article/article.wxml-->
+<view class="box">
+  <view class="box-0">{{title}}</view>
+  <view class="box-1"><text>云楼</text>{{time}}</view>
+
+  <view class="box-2">
+    <import src="../../utils/wxParse/wxParse.wxml"/>
+    <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+  </view>
+</view>

@@ -1,0 +1,5 @@
+<!--pages/loading/loading.wxml-->
+<view class="loading">
+  <!-- <view class="iconfont iconjiazaizhong"></view> -->
+  <image src="/imgs/logo.png" mode="aspectFit"></image>
+</view>
